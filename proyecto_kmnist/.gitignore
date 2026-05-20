@@ -1,0 +1,37 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Data files — grandes, no subir a git
+data/*.npz
+data/*.csv
+
+# Dataset tabular generado — puede ser grande
+features.csv
+
+# Outputs — modelos pesados
+outputs/models/*.pkl
+outputs/models/*.joblib
+
+# Figuras generadas (opcional: comentar si quieres versionar las figuras)
+# outputs/figures/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

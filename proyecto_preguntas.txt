@@ -1,0 +1,258 @@
+
+============================================================
+PÁGINA 1
+============================================================
+ 
+ 
+ 
+PROYECTO FINAL APRENDIZAJE DE MÁQUINA Y ANÁLISIS DE DATOS 
+Departamento de Electrónica y Ciencias de la Computación – DECC | PUJC 
+Asignatura: Aprendizaje Automático y Análisis de Datos 
+Profesor: Felipe Palta, M.Sc. felipe.palta@javerianacali.edu.co 
+ 
+Enunciado: 
+Durante el desarrollo de la asignatura se han estudiado los fundamentos necesarios para 
+construir un sistema completo de clasificación usando Machine Learning clásico. Entre los temas 
+abordados se encuentran el análisis exploratorio de datos, la división de datos en entrenamiento 
+y prueba, la evaluación mediante matriz de confusión y métricas de clasificación, el uso de 
+modelos supervisados, la reducción de dimensionalidad con PCA, la validación cruzada y la 
+construcción de flujos de trabajo mediante Pipeline en Python. 
+Adicionalmente, se realizó una introducción al procesamiento digital de imágenes, donde se 
+estudiaron conceptos como imagen monocromática, imagen RGB, histogramas, umbralización, 
+segmentación básica y extracción inicial de información visual. Estos concept os serán 
+fundamentales para el desarrollo del presente proyecto. 
+El objetivo del proyecto es que cada grupo construya un sistema de clasificación de imágenes de 
+principio a fin. Para ello, cada grupo deberá seleccionar un dataset público de imágenes y 
+desarrollar una solución basada en extracción manual o ingenieril de características, evitando 
+depender directamente de modelos de deep learning o redes neuronales convolucionales. 
+Cada grupo deberá escoger un dataset diferente de los propuestos por el docente. Se recomienda 
+que el dataset tenga al menos dos clases y que permita formular un problema de clasificación 
+claro, ya sea binario o multiclase. 
+El proyecto no consiste únicamente en entrenar modelos, sino en diseñar una representación 
+numérica adecuada de las imágenes. Por esta razón, una de las partes más importante del trabajo 
+será la extracción de características visuales. Cada grupo deberá analizar qué información de la 
+imagen puede ser útil para diferenciar las clases: color, intensidad, textura, forma, bordes, 
+regiones, histogramas, descriptores geométricos u otras características investigadas por el grupo 
+que permitan generar un dataset de e ntrenamiento y así poder entrenar los modelos de 
+aprendizaje de máquina. 
+ 
+ 
+============================================================
+PÁGINA 2
+============================================================
+ 
+ 
+ 
+ 
+Nota 1: 
+• Los modelos mínimos que deberán ser evaluados son: Perceptrón, Adaline o una 
+aproximación equivalente, Regresión Logística, SVM con kernel lineal, SVM con kernel 
+polinómico, SVM con kernel RBF, KNN, Árbol de Decisión y Bosque Aleatorio. 
+ 
+• Además, cada grupo deberá aplicar PCA para analizar la reducción de dimensionalidad y 
+estudiar si esta técnica mejora, empeora o mantiene el desempeño de los modelos. 
+También se deberá usar validación cruzada y Pipeline de sklearn para organizar 
+correctamente las fases de escalamiento, reducción de dimensionalidad y clasificación. 
+ 
+• La evaluación del sistema deberá realizarse mediante matriz de confusión, accuracy, 
+precision, recall, F1 -score y análisis por clase. No será suficiente reportar un único valor 
+de exactitud; se deberá analizar qué clases se clasifican mejor, cuáles generan  más 
+confusión y qué tipo de imágenes producen errores. 
+ 
+Preguntas: 
+1. Comprensión del problema y del dataset 
+Cada grupo debe responder: 
+1. ¿Cuál es el problema de clasificación que plantea el dataset asignado?  
+2. ¿El problema es binario o multiclase?  
+3. ¿Cuántas clases hay y qué representa visualmente cada clase?  
+4. ¿Las clases parecen visualmente separables a simple vista? Justifique con ejemplos.  
+5. ¿Qué dificultades visuales podrían afectar la clasificación? 
+Por ejemplo: ruido, iluminación, rotación, escala, fondo, similitud entre clases, baja 
+resolución o desbalance. 
+ 
+2. EDA de alta profundidad 
+Cada grupo debe realizar un EDA que incluya mínimo: 
+1. Conteo de imágenes por clase.  
+2. Distribución porcentual de clases.  
+============================================================
+PÁGINA 3
+============================================================
+ 
+ 
+ 
+3. Tamaños originales de las imágenes.  
+4. Número de canales: monocromático, RGB u otro.  
+5. Visualización de muestras representativas por clase.  
+6. Histogramas de intensidad o histogramas RGB/HSV por clase.  
+7. Análisis de contraste, brillo, textura y bordes.  
+8. Detección de clases visualmente parecidas.  
+9. Identificación de posibles outliers visuales.  
+10. Discusión sobre si el dataset está balanceado o no. 
+ 
+3. Preprocesamiento digital de imágenes 
+Deben justificar y aplicar un flujo de preprocesamiento, por ejemplo: 
+1. Redimensionamiento estándar de imágenes.  
+2. Conversión a escala de grises cuando tenga sentido.  
+3. Normalización de intensidades.  
+4. Suavizado o filtrado si aplica.  
+5. Segmentación simple si aplica.  
+6. Umbralización de Otsu cuando tenga sentido.  
+7. Extracción de región de interés si el objeto principal está sobre fondo simple.  
+8. Comparación entre usar imagen completa y usar imagen segmentada.  
+La idea es que el grupo no haga todo mecánicamente. Debe justificar por qué cada 
+transformación ayuda o no ayuda al problema. 
+ 
+ 
+ 
+ 
+============================================================
+PÁGINA 4
+============================================================
+ 
+ 
+ 
+4. Extracción de características visuales 
+Este debe ser el corazón del proyecto. 
+Cada grupo debe construir al menos tres familias de características: 
+A. Características de intensidad/color 
+Ejemplos: 
+• Media, desviación estándar, mínimo, máximo.  
+• Histogramas de gris.  
+• Histogramas RGB.  
+• Histogramas HSV.  
+• Momentos estadísticos por canal.  
+• Proporción de píxeles claros/oscuros.  
+• Dominancia de color. 
+B. Características de forma/bordes 
+Ejemplos: 
+• Área del objeto segmentado.  
+• Perímetro.  
+• Circularidad.  
+• Relación alto/ancho.  
+• Momentos de Hu.  
+• Bordes con Canny.  
+• Proporción de píxeles de borde.  
+• Descriptores por zonas de la imagen. 
+ 
+C. Características de textura 
+Ejemplos: 
+• LBP.  
+• GLCM.  
+• Contraste.  
+• Homogeneidad.  
+• Energía.  
+• Correlación.  
+• Entropía.  
+============================================================
+PÁGINA 5
+============================================================
+ 
+ 
+ 
+• HOG.  
+En general, puede investigar y justificar el uso de cualquier técnica para extracción de 
+características. 
+ 
+5. Construcción del dataset tabular final 
+Cada grupo debe entregar un dataframe final donde: 
+1. Cada fila represente una imagen.  
+2. Cada columna represente una característica extraída.  
+3. Exista una columna objetivo y.  
+4. Se documenten claramente todas las variables.  
+5. Se indique qué características son de color, textura, forma o intensidad.  
+6. Se analice correlación entre características.  
+7. Se detecten características redundantes o poco informativas. 
+ 
+6. División train/test 
+Deben usar una división adecuada: 
+1. train_test_split.  
+2. División estratificada.  
+3. Semilla fija para reproducibilidad.  
+4. Justificación del porcentaje usado.  
+5. Verificación de que la proporción de clases se conserve en train y test. 
+ 
+ 
+7. Modelos obligatorios 
+ 
+Cada grupo debe entrenar y comparar al menos: 
+1. Perceptrón.  
+2. Adaline o una aproximación equivalente implementada por el grupo.  
+3. Regresión logística.  
+4. SVM lineal.  
+5. SVM polinómico.  
+6. SVM RBF.  
+7. KNN.  
+8. Árbol de decisión.  
+============================================================
+PÁGINA 6
+============================================================
+ 
+ 
+ 
+9. Bosque aleatorio.  
+ 
+No basta con mostrar accuracy. Deben comparar comportamiento, sensibilidad al escalamiento, 
+costo computacional, sobreajuste y desempeño por clase. 
+ 
+8. PCA y reducción de dimensionalidad 
+ 
+Cada grupo debe responder: 
+ 
+1. ¿Cuántas características originales se tenían?  
+2. ¿Cuánta varianza explican los primeros componentes principales?  
+3. ¿Cuántos componentes son necesarios para explicar 90 %, 95 % o 99 % de la varianza?  
+4. ¿PCA mejora, empeora o mantiene el desempeño?  
+5. ¿Qué modelos se benefician más de PCA?  
+6. ¿Qué modelos pierden interpretabilidad con PCA?  
+7. Visualizar las clases usando PC1 vs PC2 y, si es posible, PC1 vs PC2 vs PC3. 
+ 
+9. Validación cruzada y búsqueda de hiperparámetros 
+Cada grupo debe usar: 
+1. cross_val_score o cross_validate.  
+2. StratifiedKFold.  
+3. GridSearchCV o RandomizedSearchCV.  
+4. Comparación entre resultado de validación cruzada y resultado final en test.  
+5. Discusión sobre varianza del modelo. 
+ 
+10. Uso obligatorio de Pipeline 
+ 
+Cada grupo debe implementar al menos dos pipelines: 
+ 
+a. Uno sin PCA 
+b. Otro con PCA 
+ 
+11. Evaluación final 
+La evaluación debe incluir: 
+1. Matriz de confusión.  
+2. Accuracy.  
+============================================================
+PÁGINA 7
+============================================================
+ 
+ 
+ 
+3. Precision.  
+4. Recall.  
+5. F1-score.  
+6. Análisis por clase.  
+7. Identificación de clases más confundidas.  
+8. Discusión visual de errores: mostrar imágenes mal clasificadas.  
+9. Conclusión técnica: qué características ayudaron más y cuáles no.  
+ 
+12 .  Opción de rechazo:  Al mejor modelo obtenido de todos durante el desarrollo de todo el 
+trabajo deberá de aplicarle la técnica de la OPCIÓN DE RECHAZO y comparar el objeto del 
+resultado vs el modelo sin opción de rechazo basado en un análisis crítico del caso. 
+Entregables: 
+1. Notebook completo en Google Colab. 
+2. Carpeta con funciones .py reutilizables.  
+3. Dataset tabular final de características en .csv.  
+4. Presentación corta de resultados.  
+5. Matriz de confusión final.  
+6. Tabla comparativa de modelos.  
+7. Evidencia visual de imágenes correctamente e incorrectamente clasificadas. 
+ 
+ 
+ 
+ 
+ 
+ 
