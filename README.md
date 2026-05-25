@@ -170,13 +170,3 @@ Fuente oficial: [KMNIST Dataset — CODH](http://codh.rois.ac.jp/kmnist/)
 | `notebook`, `ipykernel`    | Jupyter                              |
 
 Ver versiones exactas en [`requirements.txt`](requirements.txt).
-
----
-
-## ⚠️ Restricciones del proyecto
-
-- ❌ Sin redes neuronales (CNN, RNN, Transformers)
-- ❌ Sin TensorFlow, PyTorch, Keras, JAX
-- ❌ Sin features pre-entrenadas o transfer learning
-- ✅ Solo ML clásico con scikit-learn
-- ✅ Extracción manual de características con skimage / cv2 / scipy
